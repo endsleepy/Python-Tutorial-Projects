@@ -1,16 +1,16 @@
 
-
-operator = input("Enter an operator (+, -, /, *)"  )
+# Takes number from user and operator 
+symbol = input("Enter an symbol (+, -, /, *)"  )
 num1 = float(input("Enter the first number"  ))
 num2 = float(input("Enter the second number"  ))
 
-if operator == "+":
+if symbol == "+":
     print(num1 + num2)
-elif operator == "-":
+elif symbol == "-":
     print(num1 - num2)
-elif operator == "*":
+elif symbol == "*":
     print(num1 * num2)
-elif operator == "/":
+elif symbol == "/":
     print(round(num1 / num2), 2)
 else:
-    print(f"{operator}is not an operator pal")
+    print(f"{symbol} is not an symbol pal")
