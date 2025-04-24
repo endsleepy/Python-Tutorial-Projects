@@ -55,5 +55,5 @@ for guess in guesses:
     print(guess, end=" ")
 print()
 
-score = int(score / len(question) * 100)
+score = int(score / len(question_number) * 100)
 print(f"Your score is: {score}%")
