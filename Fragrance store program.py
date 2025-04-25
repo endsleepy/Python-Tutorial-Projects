@@ -11,25 +11,50 @@ perfumes_men = {"Dior Sauvage Eau de Toilette": 100,
 cart = []
 total = 0 
 
-print("----------MENU----------        (Prices)")
-for key, value in perfumes_men.items():
-    print(f"{key:30} : ${value:.2f}")
-print("------------------------------")
-
 while True:
-    fragrance = input("Select an item (q to quit): ")
 
-    if fragrance == "Q" or fragrance == "q":
-        break    
-    elif perfumes_men.get(fragrance) is not None:
-        cart.append(fragrance)
-    else:
-        print("a")
-        continue
+    gender = input("Are you male or female? (M or F): ").capitalize()
 
-for fragrance in cart:
-    total = total + perfumes_men.get(fragrance)
-    print(fragrance, end=" ")
+    if gender == "F":
+        
+        print("----------MENU----------        (Prices)")
+        for key, value in perfumes_women.items():
+            print(f"{key:30} : ${value:.2f}")
+        print("------------------------------")
 
-print()
-print(f"Total is: ${total:.2f}")
+        while True:
+            fragrance = input("Select an item (q to quit): ")
+
+            if fragrance == "Q" or fragrance == "q":
+                break    
+            elif perfumes_women.get(fragrance) is not None:
+                cart.append(fragrance)
+            else:
+                print("a")
+                continue
+
+    elif gender == "M":
+
+        print("----------MENU----------        (Prices)")
+        for key, value in perfumes_men.items():
+            print(f"{key:30} : ${value:.2f}")
+        print("------------------------------")
+
+        while True:
+            fragrance = input("Select an item (q to quit): ")
+
+            if fragrance == "Q" or fragrance == "q":
+                break    
+            elif perfumes_men.get(fragrance) is not None:
+                cart.append(fragrance)
+            else:
+                print("a")
+                continue
+        
+        for fragrance in cart:
+            total = total + perfumes_men.get(fragrance)
+            print(fragrance, end=" ")
+        
+        print()
+        print(f"Total is: ${total:.2f}")
+
