@@ -35,22 +35,29 @@ while True:
     if gender == "F":
         menu(perfumes_women)
         select_fragrance(perfumes_women)
+        break
 
     elif gender == "M":
         menu(perfumes_men)
         select_fragrance(perfumes_men)
+        break
 
     else:
         print("Invalid input. Please enter M or F.")
 
 
-        
-        
-    
-for fragrance in cart:
-    total = total + perfumes_men.get(fragrance)
-    print(fragrance, end=" ")
-        
+if not cart:
+    print("Your cart is empty")
+
+else:
+    for fragrance in cart:
+        if fragrance in perfumes_men:        
+            total = total + perfumes_men.get(fragrance)
+            print(fragrance, end=" ,")
+        elif fragrance in perfumes_women:
+            total += perfumes_women.get(fragrance, 0)
+            print(fragrance, end=" ,")
+
     print()
     print(f"Total is: ${total:.2f}")
 
