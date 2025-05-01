@@ -11,50 +11,46 @@ perfumes_men = {"Dior Sauvage Eau de Toilette": 100,
 cart = []
 total = 0 
 
-while True:
+def menu(perfume_dict):
+        print("----------MENU----------        (Prices)")
+        for key, value in perfume_dict.items():
+            print(f"{key:30} : ${value:.2f}")
+        print("------------------------------")
 
-    gender = input("Are you male or female? (M or F): ").capitalize()
+def select_fragrance(perfume_dict):
+    while True:
+        fragrance = input("Select an item (q to quit): ").strip()
+
+        if fragrance == "Q" or fragrance == "q":
+            break    
+        elif perfume_dict.get(fragrance) is not None:
+            cart.append(fragrance)
+            print(f"{fragrance} added to the cart.")
+        else:
+            print("Sorry, invalid input. Please try again.")
+        
+while True:
+    gender = input("Are you male or female? (M or F): ").strip().upper()
 
     if gender == "F":
-        
-        print("----------MENU----------        (Prices)")
-        for key, value in perfumes_women.items():
-            print(f"{key:30} : ${value:.2f}")
-        print("------------------------------")
-
-        while True:
-            fragrance = input("Select an item (q to quit): ")
-
-            if fragrance == "Q" or fragrance == "q":
-                break    
-            elif perfumes_women.get(fragrance) is not None:
-                cart.append(fragrance)
-            else:
-                print("a")
-                continue
+        menu(perfumes_women)
+        select_fragrance(perfumes_women)
 
     elif gender == "M":
+        menu(perfumes_men)
+        select_fragrance(perfumes_men)
 
-        print("----------MENU----------        (Prices)")
-        for key, value in perfumes_men.items():
-            print(f"{key:30} : ${value:.2f}")
-        print("------------------------------")
+    else:
+        print("Invalid input. Please enter M or F.")
 
-        while True:
-            fragrance = input("Select an item (q to quit): ")
 
-            if fragrance == "Q" or fragrance == "q":
-                break    
-            elif perfumes_men.get(fragrance) is not None:
-                cart.append(fragrance)
-            else:
-                print("a")
-                continue
         
-        for fragrance in cart:
-            total = total + perfumes_men.get(fragrance)
-            print(fragrance, end=" ")
         
-        print()
-        print(f"Total is: ${total:.2f}")
+    
+for fragrance in cart:
+    total = total + perfumes_men.get(fragrance)
+    print(fragrance, end=" ")
+        
+    print()
+    print(f"Total is: ${total:.2f}")
 
