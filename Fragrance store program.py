@@ -1,4 +1,6 @@
 # Fragrance store program
+from datetime import datetime
+
 
 perfumes_women = {"Chanel Coco Mademoiselle Eau de Parfum": 135,
                   "Ariana Grande Cloud Eau de Parfum": 65,
@@ -12,10 +14,10 @@ cart = []
 total = 0 
 
 def menu(perfume_dict):
-        print("----------MENU----------        (Prices)")
-        for key, value in perfume_dict.items():
-            print(f"{key:30} : ${value:.2f}")
-        print("------------------------------")
+        print("------------------MENU------------------  (Prices)")
+        for key, value in perfume_dict.items()           :
+            print(f"{key:40} : ${value:.2f}")
+        print("----------------------------------------")
 
 def select_fragrance(perfume_dict):
     while True:
@@ -30,14 +32,26 @@ def select_fragrance(perfume_dict):
             print("Sorry, invalid input. Please try again.")
         
 while True:
+    print("#############################################")
+    print("########## SLEEPY'S FRAGRANCE STORE #########")
+    print("#############################################")
+    print("")
     gender = input("Are you male or female? (M or F): ").strip().upper()
 
     if gender == "F":
+        print("####################################")
+        print("########## WOMEN'S SECTION #########")
+        print("####################################")
+        print("")
         menu(perfumes_women)
         select_fragrance(perfumes_women)
         break
 
     elif gender == "M":
+        print("##################################")
+        print("########## MEN'S SECTION #########")
+        print("##################################")
+        print("")
         menu(perfumes_men)
         select_fragrance(perfumes_men)
         break
@@ -45,19 +59,31 @@ while True:
     else:
         print("Invalid input. Please enter M or F.")
 
+current_time = datetime.now()
+
+formatted_time = current_time.strftime("%Y-%m-%d %H-%M:%S")
 
 if not cart:
     print("Your cart is empty")
 
 else:
     for fragrance in cart:
+        print("")
+        print("###########################")
+        print("######### RECEIPT #########")
+        print("###########################")
+        print("")
+        print("--------- YOUR ORDER ---------")
         if fragrance in perfumes_men:        
             total = total + perfumes_men.get(fragrance)
-            print(fragrance, end=" ,")
+            for perfume in cart:
+                print(fragrance)
         elif fragrance in perfumes_women:
             total += perfumes_women.get(fragrance, 0)
-            print(fragrance, end=" ,")
+            for perfume in cart:
+                print(fragrance)
 
-    print()
+    print("")
+    print(f"Date & Time: {formatted_time}")  
     print(f"Total is: ${total:.2f}")
 
