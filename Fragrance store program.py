@@ -14,10 +14,10 @@ cart = []
 total = 0 
 
 def menu(perfume_dict):
-        print("------------------MENU------------------  (Prices)")
-        for key, value in perfume_dict.items()           :
-            print(f"{key:40} : ${value:.2f}")
-        print("----------------------------------------")
+    print("------------------MENU------------------  (Prices)")
+    for key, value in perfume_dict.items()           :
+    print(f"{key:40} : ${value:.2f}")
+    print("----------------------------------------")
 
 def select_fragrance(perfume_dict):
     while True:
