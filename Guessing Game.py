@@ -5,7 +5,7 @@ def game():
     lowest_num = 5
     highest_num = 110
     answer = random.randint(lowest_num, highest_num)
-    guesses = 0 
+    guesses = 0
     is_running = True
 
     print("Python Number Guessing Game")
