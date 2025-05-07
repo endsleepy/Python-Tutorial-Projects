@@ -7,13 +7,16 @@ def game():
     answer = random.randint(lowest_num, highest_num)
     guesses = 0
     is_running = True
-
-    print("Python Number Guessing Game")
+    
+    print("#######################################################")
+    print("############# Python Number Guessing Game #############")
+    print("#######################################################")
     print(f"Select a number between {lowest_num} and {highest_num}")
 
     is_running = True
     while is_running:
 
+        print("")
         guess = input("Enter your guess: ")
 
         try:
@@ -24,15 +27,18 @@ def game():
             print(f"Select a number between {lowest_num} and {highest_num}")
         else:
             if guess < lowest_num or guess > highest_num:
-                print("That number is out of range")
+                print("That number is out of range vro. Lock in plz! 💩")
                 print(f"Select a number between {lowest_num} and {highest_num}")
             elif guess < answer:
                 print("Too low! Try again!")
             elif guess > answer:
                 print("Too high! Try again!")
             else:
-                print(f"CORRECT! The answer was  {answer}")
-                print(f"Number of guesses was {guesses}")
+                print("")
+                print("###################################################")
+                print(f"WWW YOU GOT IT RIGHT🥳!!! The answer was {answer}")
+                print(f"It took you {guesses} trys. Have a nice day!")
+                print("###################################################")
                 is_running = False
-        
+
 game()
