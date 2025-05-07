@@ -1,5 +1,6 @@
 # Madlibs game
 
+# Asks user to enter their name
 user = input("Please enter your name pal!\n")
 
 # Assigning of variables
