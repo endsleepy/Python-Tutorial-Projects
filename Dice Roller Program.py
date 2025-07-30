@@ -64,4 +64,4 @@ for die in range(num_of_dice):
 for die in dice:
     total += die
     print(F"TOTAL: {total}")
-    
+        
